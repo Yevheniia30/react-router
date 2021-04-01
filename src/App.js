@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// import { Component } from 'react';
+import { Route, NavLink, Switch } from 'react-router-dom';
+import s from './App.module.css';
+import MoviesView from './views/MoviesView';
 
-function App() {
+import NotFoundView from './views/NotFound';
+import HomeMoviesView from './views/HomeMoviesView';
+import MovieDetailView from './views/MovieDetailsView';
+
+const App = () => {
   return (
-    <div className="App-main">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={s.App}>
+      <ul>
+        <li>
+          <NavLink exact to="/" className={s.base} activeClassName={s.active}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/movies" className={s.base} activeClassName={s.active}>
+            Movies
+          </NavLink>
+        </li>
+      </ul>
+
+      <Switch>
+        <Route exact path="/" component={HomeMoviesView} />
+        <Route exact path="/movies" component={MoviesView} />
+        <Route path="/movies/:movieId" component={MovieDetailView} />
+        {/* <Route path="/cast" component={CastView} />
+        <Route path="/reviews" component={ReviewsView} /> */}
+        <Route component={NotFoundView} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;

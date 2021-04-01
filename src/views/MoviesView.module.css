@@ -1,0 +1,14 @@
+/* ul {
+  list-style: none;
+} */
+.base {
+  color: #282c34;
+  text-decoration: none;
+}
+.active {
+  color: tomato;
+  text-decoration: none;
+}
+.list {
+  list-style: disc;
+}
