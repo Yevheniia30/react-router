@@ -81,6 +81,7 @@ class MovieDetailsView extends Component {
                 : `https://image.tmdb.org/t/p/w300/${poster_path}`
             }
             alt={original_title}
+            width="300px"
           />
           <h2>{original_title}</h2>
           <p>User score: {vote_average}</p>
